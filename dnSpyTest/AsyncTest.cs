@@ -5,23 +5,11 @@ namespace dnSpyTest
 {
     public class AsyncTest
     {
-        public static async Task Method1()
+        private static async Task<T> RequestResultAsync<T>()
         {
-            await Task.Run(() =>
-            {
-                for (int i = 0; i < 100; i++)
-                {
-                    Console.WriteLine(" Method 1");
-                }
+            return await Task.Run(async delegate {
+                return default(T);
             });
-        }
-
-        public static void Method2()
-        {
-            for (int i = 0; i < 25; i++)
-            {
-                Console.WriteLine(" Method 2");
-            }
         }
     }
 }
