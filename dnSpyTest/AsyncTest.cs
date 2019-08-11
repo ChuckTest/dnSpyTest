@@ -1,14 +1,27 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 
 namespace dnSpyTest
 {
     public class AsyncTest
     {
-        public static async Task<T> RequestResultAsync<T>()
+        public static async Task Method1()
         {
-            return await Task.Run(async delegate {
-                return default(T);
+            await Task.Run(() =>
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    Console.WriteLine(" Method 1");
+                }
             });
+        }
+
+        public static void Method2()
+        {
+            for (int i = 0; i < 25; i++)
+            {
+                Console.WriteLine(" Method 2");
+            }
         }
     }
 }
