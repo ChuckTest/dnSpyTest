@@ -1,15 +1,19 @@
 ﻿using System;
 using System.Threading.Tasks;
-
+using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
+using static MahApps.Metro.Controls.Dialogs.MessageDialogStyle;
 namespace dnSpyTest
 {
-    public class AsyncTest
+    public class AsyncTest: MetroWindow
     {
-        private static async Task<T> RequestResultAsync<T>()
+        public async void NewTest()
         {
-            return await Task.Run(async delegate {
-                return default(T);
-            });
+            var result = await
+                this.ShowMessageAsync("Exporting multiple decks!", $"You are about to export {0} decks. Are you sure?",
+                    AffirmativeAndNegative);
+            if (result != MessageDialogResult.Affirmative)
+                return;
         }
     }
 }
