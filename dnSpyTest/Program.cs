@@ -6,8 +6,18 @@ namespace dnSpyTest
     {
         static void Main()
         {
-            Console.WriteLine("Hello world");
-            Console.ReadLine();
+            try
+            {
+                Console.WriteLine("Hello world");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+            finally
+            {
+                Console.ReadLine();
+            }
         }
     }
 }
